@@ -1,11 +1,19 @@
 # Load the runtime properties
 import pyspark
+import sys
 from pyspark.context import SparkContext
 from pyspark.sql import SQLContext
 from pyspark.sql import SparkSession
-
-import sys
 import configparser as cp
+
+from util import get_tables
+def main():
+    tables = get_tables('Table_list')
+    # for records in tables['table_name']:
+    # print(records)
+
+if __name__ == '__main__':
+    main()
 
 props = cp.RawConfigParser()
 props.read("config.py")
